@@ -28,8 +28,11 @@ public class Read : MonoBehaviour
 
         while (reader.Read())
         {
-            textCanvas.text += "\n      " + reader[0] + "   " + reader[1];
+            textCanvas.text += "\n       " + reader[0].ToString() + "   " + reader[1].ToString();
         }
         reader.Close();
     }
+
+
 }
+

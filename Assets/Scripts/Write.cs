@@ -9,8 +9,9 @@ using UnityEditor.VersionControl;
 
 public class Write : MonoBehaviour
 {
-    public TextMeshProUGUI username;
-    public TextMeshProUGUI score;
+
+    public TMP_InputField username;
+    //public TMP_InputField? score;
     private string connectionString;
     private MySqlConnection MS_Connection;
     private MySqlCommand MS_Command;
@@ -21,7 +22,7 @@ public class Write : MonoBehaviour
         {
             connection();
 
-            query = "INSERT INTO `users`(`userName`, `highScore`) VALUES ('" + username.text + "' , '" + score.text +"');";
+            query = "INSERT INTO users ( userName ) VALUES ('" + username.text + "');";
 
             MS_Command = new MySqlCommand(query, MS_Connection);
 
@@ -29,18 +30,15 @@ public class Write : MonoBehaviour
 
             MS_Connection.Close();
 
-
         }catch (Exception ex)
         {
             Console.Write(ex.Message);
         }
-
-
     }
 
     private void connection()
     {
-        connectionString = "Server=.d; database=mokrilugkaw; password=password; user=root; ; charset = utf8;";
+        connectionString = "Server=localhost; database = mokrilugkaw; user = root; password = ''; charset = utf8";
         MS_Connection = new MySqlConnection(connectionString);
 
         MS_Connection.Open();
