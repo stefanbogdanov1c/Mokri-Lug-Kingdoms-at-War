@@ -5,13 +5,12 @@ using MySql.Data.MySqlClient;
 using System;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditor.VersionControl;
 
 public class Write : MonoBehaviour
 {
 
     public TMP_InputField username;
-    //public TMP_InputField? score;
+    //public? TMP_InputField score;
     private string connectionString;
     private MySqlConnection MS_Connection;
     private MySqlCommand MS_Command;
