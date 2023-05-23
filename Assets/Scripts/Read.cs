@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using MySql.Data.MySqlClient;
 using UnityEngine;
 using UnityEngine.UI;
-using MySql.Data.MySqlClient;
 public class Read : MonoBehaviour
 {
     private string connectionString;
@@ -28,7 +26,7 @@ public class Read : MonoBehaviour
 
         while (reader.Read())
         {
-            textCanvas.text += "\n       " + reader[0].ToString() + "   " + reader[1].ToString();
+            textCanvas.text += "\n" + reader[0].ToString() + "       " + reader[1].ToString() + "        " + reader[2].ToString();
         }
         reader.Close();
     }
