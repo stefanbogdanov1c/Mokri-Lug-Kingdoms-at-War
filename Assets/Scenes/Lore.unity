@@ -927,9 +927,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 871902843}
+      - m_Target: {fileID: 871902844}
         m_TargetAssemblyTypeName: Goback, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: ToLogin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
