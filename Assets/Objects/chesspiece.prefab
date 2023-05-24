@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2427735104760982480}
   - component: {fileID: 2427735104760982487}
+  - component: {fileID: -1704466162008100770}
   m_Layer: 5
-  m_Name: StrelacBeli
+  m_Name: chesspiece
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,3 +85,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-1704466162008100770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2427735104760982481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f704e791b713adf44a35d7c6e6ad027a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  movePlate: {fileID: 0}
+  crni_vojnik: {fileID: 21300000, guid: 2b5febbd4b85ba849b1faab0d64e65fe, type: 3}
+  crni_kralj: {fileID: 21300000, guid: 56c3893824393af4db91ffca2e84de58, type: 3}
+  crni_strelac: {fileID: 21300000, guid: 259aecd5a061d1943bcbda01bef81c84, type: 3}
+  beli_vojnik: {fileID: 21300000, guid: a92ac1ac9a9920d44a0b7ab64810cde4, type: 3}
+  beli_kralj: {fileID: 21300000, guid: 6b27e7f19b19e0d43b52b50669d91124, type: 3}
+  beli_strelac: {fileID: 21300000, guid: de7843b9949227e4782b64fd2da5c63c, type: 3}
+  cellSize: 1
