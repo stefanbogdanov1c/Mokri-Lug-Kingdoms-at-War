@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
 
     public void ChangeSceneToLeaderboard()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene("ScoreBoard");
         //ovo moze da se menja da se stavljaju default scene
     }
     public void QuitGame()
