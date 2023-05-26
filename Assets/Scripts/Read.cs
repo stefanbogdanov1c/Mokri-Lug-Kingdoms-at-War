@@ -12,6 +12,7 @@ public class Read : MonoBehaviour
 
     public void viewInfo()
     {
+        textCanvas.text = "";
         query = "SELECT * FROM users";
 
         connectionString = "Server=localhost; database = mokrilugkaw; user = root; password = ''; charset = utf8";
