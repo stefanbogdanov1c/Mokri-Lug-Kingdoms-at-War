@@ -325,7 +325,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-
 --- !u!1001 &184630403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -957,9 +956,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2065732516}
         m_TargetAssemblyTypeName: Goback, Assembly-CSharp
-        m_MethodName: GoBack
+        m_MethodName: ToBoard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
