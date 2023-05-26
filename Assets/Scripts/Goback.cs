@@ -13,5 +13,20 @@ public class Goback : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
+    public void ToLore()
+    {
+        SceneManager.LoadScene("Lore");
+    }
+
+    public void ToBoard()
+    {
+        SceneManager.LoadScene("Board");
+
+    }
+
+    public void ToLogin()
+    {
+        SceneManager.LoadScene("Login");
+    }
 
 }
