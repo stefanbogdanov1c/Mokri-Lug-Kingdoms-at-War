@@ -10,7 +10,6 @@ public class Write : MonoBehaviour
 {
 
     public TMP_InputField username;
-    //public? TMP_InputField score;
     private string connectionString;
     private MySqlConnection MS_Connection;
     private MySqlCommand MS_Command;
@@ -21,7 +20,13 @@ public class Write : MonoBehaviour
         {
             connection();
 
+            if (username.text=="")
+            {
+                username.text = "Guest";
+            }
+
             query = "INSERT INTO users ( userName ) VALUES ('" + username.text + "');";
+
 
             MS_Command = new MySqlCommand(query, MS_Connection);
 
