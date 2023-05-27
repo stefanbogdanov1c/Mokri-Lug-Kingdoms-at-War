@@ -50,12 +50,12 @@ public class Chessman : MonoBehaviour
         float y = yBoard;
 
         //Adjust by variable offset
-        x *= 0.66f;
-        y *= 0.66f;
+        x *= 1.343f;
+        y *= 1.322f;
 
         //Add constants (pos 0,0)
-        x += -2.3f;
-        y += -2.3f;
+        x += -4.0f;
+        y += -4.0f;
 
         //Set actual unity values
         this.transform.position = new Vector3(x, y, -2.0f);
