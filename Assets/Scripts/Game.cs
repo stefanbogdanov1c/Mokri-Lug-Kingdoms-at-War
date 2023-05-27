@@ -1,23 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
+    //Reference from Unity IDE
     public GameObject chesspiece;
 
+    //Matrices needed, positions of each of the GameObjects
+    //Also separate arrays for the players in order to easily keep track of them all
+    //Keep in mind that the same objects are going to be in "positions" and "playerBlack"/"playerWhite"
+    
     private GameObject[,] positions = new GameObject[7, 7];
     private GameObject[] playerBlack = new GameObject[7];
     private GameObject[] playerWhite = new GameObject[7];
 
+    //current turn
     private string currentPlayer = "white";
 
+    //Game Ending
     private bool gameOver = false;
 
-    private float cellSize = 1.0f; // Adjust the cell size according to your game
-
+    //Unity calls this right when the game starts, there are a few built in functions
+    //that Unity can call for you
     void Start()
     {
+
         playerWhite = new GameObject[] {
             Create("beli_vojnik", 0, 0), Create("beli_strelac", 1, 0), Create("beli_vojnik", 2, 0), 
             Create("beli_kralj", 3, 0), Create("beli_vojnik", 4, 0), Create("beli_strelac", 5, 0), Create("beli_vojnik", 6, 0) 
@@ -36,13 +46,12 @@ public class Game : MonoBehaviour
 
     public GameObject Create(string name, int x, int y)
     {
-        GameObject obj = Instantiate(chesspiece, new Vector3(0,0,-1), Quaternion.identity);
-        Chessman cm = obj.GetComponent<Chessman>();
-        cm.name = name;
+        GameObject obj = Instantiate(chesspiece, new Vector3(0, 0, -2), Quaternion.identity);
+        Chessman cm = obj.GetComponent<Chessman>(); //We have access to the GameObject, we need the script
+        cm.name = name; //This is a built in variable that Unity has, so we did not have to declare it before
         cm.SetXBoard(x);
         cm.SetYBoard(y);
-        cm.cellSize = cellSize; // Pass the cellSize value to the Chessman script
-        cm.Activate();
+        cm.Activate(); //It has everything set up so it can now Activate()
         return obj;
     }
 
@@ -50,6 +59,8 @@ public class Game : MonoBehaviour
     {
         Chessman cm = obj.GetComponent<Chessman>();
 
+        //Overwrites either empty space or whatever was there
         positions[cm.GetXBoard(), cm.GetYBoard()] = obj;
     }
+
 }
