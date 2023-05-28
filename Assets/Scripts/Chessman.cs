@@ -111,14 +111,28 @@ public class Chessman : MonoBehaviour
                 SurroundMovePlate();
                 break;
             case "beli_vojnik":
-                SoldierMovePlate(xBoard, yBoard + 1);
+                WhiteSoldierMovePlate();
                 break;
             case "crni_vojnik":
-                SoldierMovePlate(xBoard, yBoard - 1);
+                BlackSoldierMovePlate();
                 break;
 
 
         }
+    }
+
+    public void WhiteSoldierMovePlate()
+    {
+        PointMovePlate(xBoard, yBoard + 1);
+        PointMovePlate(xBoard + 1, yBoard + 1);
+        PointMovePlate(xBoard - 1, yBoard + 1);
+    }
+
+    public void BlackSoldierMovePlate()
+    {
+        PointMovePlate(xBoard, yBoard - 1);
+        PointMovePlate(xBoard + 1, yBoard - 1);
+        PointMovePlate(xBoard - 1, yBoard - 1);
     }
 
     public void LMovePlate()
@@ -160,33 +174,6 @@ public class Chessman : MonoBehaviour
             else if(cp.GetComponent<Chessman>().player != player)
             {
                 MovePlateAttackSpawn(x, y);
-            }
-        }
-    }
-
-    public void SoldierMovePlate(int x, int y)
-    {
-        Game sc = controller.GetComponent<Game>();
-        if (sc.PositionOnBoard(x, y))
-        {
-            if(sc.GetPosition(x, y) == null)
-            {
-                MovePlateSpawn(x, y);
-            }
-
-            if(sc.PositionOnBoard(x+1,y) && sc.GetPosition(x+1,y)!=null && sc.GetPosition(x+1, y).GetComponent<Chessman>().player != player)
-            {
-                MovePlateAttackSpawn(x + 1, y);
-            }
-
-            if (sc.PositionOnBoard(x + 1, y) && sc.GetPosition(x + 1, y) != null && sc.GetPosition(x + 1, y).GetComponent<Chessman>().player != player)
-            {
-                MovePlateAttackSpawn(x, y);
-            }
-
-            if (sc.PositionOnBoard(x + 1, y) && sc.GetPosition(x + 1, y) != null && sc.GetPosition(x + 1, y).GetComponent<Chessman>().player != player)
-            {
-                MovePlateAttackSpawn(x - 1, y);
             }
         }
     }
