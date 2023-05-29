@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - MovePlate
+  - BeliPobeda
+  - CrniPobeda
   layers:
   - Default
   - TransparentFX
