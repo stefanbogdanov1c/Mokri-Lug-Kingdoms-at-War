@@ -113,4 +113,13 @@ public class Game : MonoBehaviour
             SceneManager.LoadScene("Game");
         }
     }
+
+    public void Winner(string playerWinner)
+    {
+        gameOver = true;
+        if(playerWinner == "white") GameObject.FindGameObjectWithTag("BeliPobeda").GetComponent<Image>().enabled = true;
+        if(playerWinner == "black") GameObject.FindGameObjectWithTag("CrniPobeda").GetComponent<Image>().enabled = true;
+    }
+
+    
 }
