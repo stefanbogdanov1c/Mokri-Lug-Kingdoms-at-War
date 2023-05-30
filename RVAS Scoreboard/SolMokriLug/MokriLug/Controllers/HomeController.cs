@@ -15,7 +15,7 @@ namespace MokriLug.Controllers
 
             conn.Open();
 
-            string sql = "SELECT * FROM users";
+            string sql = "SELECT * FROM users ORDER BY (won/lost) DESC";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader dr = cmd.ExecuteReader();
 
