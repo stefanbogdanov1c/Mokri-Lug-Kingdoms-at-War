@@ -43,6 +43,8 @@ public class Write : MonoBehaviour
 
                 MS_Command.ExecuteNonQuery();
 
+                PlayerPrefs.SetString("Username", username.text.ToLower());
+
                 MS_Connection.Close();
             }
             else

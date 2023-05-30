@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -43,6 +40,8 @@ public class Game : MonoBehaviour
             SetPosition(playerWhite[i]);
             SetPosition(playerBlack[i]);
         }
+
+
     }
 
     public GameObject Create(string name, int x, int y)
@@ -78,7 +77,7 @@ public class Game : MonoBehaviour
     //checking if the position is on bounds of the board
     public bool PositionOnBoard(int x, int y)
     {
-        if (x<0 || y<0 || x>=positions.GetLength(0) || y>=positions.GetLength(1)) return false; return true;
+        if (x < 0 || y < 0 || x >= positions.GetLength(0) || y >= positions.GetLength(1)) return false; return true;
     }
 
     public string GetCurrentPlayer()
@@ -93,7 +92,7 @@ public class Game : MonoBehaviour
 
     public void NextTurn()
     {
-        if(currentPlayer == "white")
+        if (currentPlayer == "white")
         {
             currentPlayer = "black";
         }
@@ -103,10 +102,10 @@ public class Game : MonoBehaviour
         }
 
     }
-    
+
     public void Update()
     {
-        if(gameOver == true && Input.GetMouseButtonDown(0))
+        if (gameOver == true && Input.GetMouseButtonDown(0))
         {
             gameOver = false;
 
@@ -117,9 +116,9 @@ public class Game : MonoBehaviour
     public void Winner(string playerWinner)
     {
         gameOver = true;
-        if(playerWinner == "white") GameObject.FindGameObjectWithTag("BeliPobeda").GetComponent<Image>().enabled = true;
-        if(playerWinner == "black") GameObject.FindGameObjectWithTag("CrniPobeda").GetComponent<Image>().enabled = true;
+        if (playerWinner == "white") GameObject.FindGameObjectWithTag("BeliPobeda").GetComponent<Image>().enabled = true;
+        if (playerWinner == "black") GameObject.FindGameObjectWithTag("CrniPobeda").GetComponent<Image>().enabled = true;
     }
 
-    
+
 }
