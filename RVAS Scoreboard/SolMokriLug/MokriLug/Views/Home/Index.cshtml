@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<MokriLug.Models.UserViewModel>
 @{
-    ViewBag.Title = "Mokri Lug: Kingdoms at War";
+    ViewBag.Title = "Mokri Lug Kingdoms at War";
 }
 
 <main>
-    <h2 class="text-center">Scoreboard</h2>
-    <table class="table table-bordered">
+    <h1 class="text-center">Scoreboard</h1>
+    <table class="table table-bordered border-dark table-hover text-start fs-5">
         <thead>
             <tr class="fw-bold">
                 <td>User</td>
@@ -14,9 +14,9 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(var user in Model)
+            @foreach (var user in Model)
             {
-                <tr>
+                <tr class="p-5 m-lg-5 bg-secondary bg-opacity-25">
                     <td>@user.Username</td>
                     <td>@user.Won</td>
                     <td>@user.Lost</td>
