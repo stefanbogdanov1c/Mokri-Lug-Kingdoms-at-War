@@ -577,7 +577,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34.643906, y: 50.023026}
+  m_AnchoredPosition: {x: 69.6, y: 81}
   m_SizeDelta: {x: 204.6176, y: 63.281}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1004950147
@@ -709,7 +709,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 71.474, y: -29.017334}
+  m_AnchoredPosition: {x: 79, y: -17}
   m_SizeDelta: {x: 313.985, y: 71.321}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1021085022
@@ -1058,6 +1058,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chesspiece: {fileID: 307456128860746573, guid: f232a214693ff9d47900ef95effaaab4, type: 3}
-  BeliPobeda: {fileID: 0}
-  CrniPobeda: {fileID: 0}
-  fadeDuration: 1
