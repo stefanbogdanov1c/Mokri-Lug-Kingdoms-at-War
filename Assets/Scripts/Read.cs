@@ -32,6 +32,10 @@ public class Read : MonoBehaviour
         reader.Close();
     }
 
+    public void Awake()
+    {
+        viewInfo();
+    }
 
 }
 
