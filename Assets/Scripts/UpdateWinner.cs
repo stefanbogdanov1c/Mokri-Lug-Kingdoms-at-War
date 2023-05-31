@@ -7,19 +7,20 @@ public class UpdateWinner : MonoBehaviour
     private string connectionString;
     private MySqlConnection MS_Connection;
     private MySqlCommand MS_Command;
+    private string pobednik_upit;
+    private string gubitnik_upit;
     string updateQuery;
-    string getWon;
-    string getLost;
 
-    public void UpdateUserScoreDb(string user, int won, int lost)
+    public void UpdateUserScore(string pobednik, string gubitnik)
     {
         try
         {
             connection();
-            updateQuery = $"UPDATE users SET won={won}, lost={lost} WHERE username = '{user}'";
-            //Debug.Log(user.GetType());
-            //Debug.Log(user.ToString());
-            MS_Command = new MySqlCommand(updateQuery, MS_Connection);
+            pobednik_upit = $"UPDATE users SET won = won + 1 WHERE username = '{pobednik}'";
+            gubitnik_upit = $"UPDATE users SET lost = lost + 1 WHERE username = '{gubitnik}'";
+            MS_Command = new MySqlCommand(pobednik_upit, MS_Connection);
+            MS_Command.ExecuteNonQuery();
+            MS_Command = new MySqlCommand(gubitnik_upit, MS_Connection);
             MS_Command.ExecuteNonQuery();
             MS_Connection.Close();
 
