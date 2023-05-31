@@ -148,6 +148,10 @@ public class Game : MonoBehaviour
         gameOver = true;
         if (playerWinner == "white")
         {
+            GameObject.FindGameObjectWithTag("BoardLower").GetComponent<Image>().enabled = false;
+            GameObject.FindGameObjectWithTag("BoardUpper").GetComponent<Image>().enabled = false;
+            GameObject.FindGameObjectWithTag("Thomas").GetComponent<TMPro.TextMeshProUGUI>().enabled = false;
+            GameObject.FindGameObjectWithTag("Spitter").GetComponent<TMPro.TextMeshProUGUI>().enabled = false;
             GameObject.FindGameObjectWithTag("BeliPobeda").GetComponent<Image>().enabled = true;
             UpdateWinner win = new();
             connection();
@@ -156,14 +160,20 @@ public class Game : MonoBehaviour
             win.UpdateUserScore(userOneWon, userTwoWon);
 
         }
-        if (playerWinner == "black")
+        else if (playerWinner == "black")
         {
+            GameObject.FindGameObjectWithTag("BoardLower").GetComponent<Image>().enabled = false;
+            GameObject.FindGameObjectWithTag("BoardUpper").GetComponent<Image>().enabled = false;
+            GameObject.FindGameObjectWithTag("Thomas").GetComponent<TMPro.TextMeshProUGUI>().enabled = false;
+            GameObject.FindGameObjectWithTag("Spitter").GetComponent<TMPro.TextMeshProUGUI>().enabled = false;
             GameObject.FindGameObjectWithTag("CrniPobeda").GetComponent<Image>().enabled = true;
             UpdateWinner win = new();
             connection();
             string userOneWon = PlayerPrefs.GetString("UserOne");
             string userTwoWon = PlayerPrefs.GetString("UserTwo");
             win.UpdateUserScore(userTwoWon, userOneWon);
+        } else {
+            SceneManager.LoadScene("Board");
         }
     }
 
