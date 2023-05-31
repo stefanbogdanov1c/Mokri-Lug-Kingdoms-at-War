@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
+using MySql.Data.MySqlClient;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
+
     //Reference from Unity IDE
     public GameObject chesspiece;
 
@@ -23,6 +22,14 @@ public class Game : MonoBehaviour
 
     //Game Ending
     private bool gameOver = false;
+    private string getWon;
+    private string getLost;
+
+    //Data for database, connection...
+    private MySqlConnection MS_Connection;
+    private MySqlCommand MS_Command;
+    private string connectionString;
+
 
     //Unity calls this right when the game starts, there are a few built in functions
     //that Unity can call for you
@@ -43,6 +50,8 @@ public class Game : MonoBehaviour
             SetPosition(playerWhite[i]);
             SetPosition(playerBlack[i]);
         }
+
+
     }
 
     public GameObject Create(string name, int x, int y)
@@ -78,7 +87,7 @@ public class Game : MonoBehaviour
     //checking if the position is on bounds of the board
     public bool PositionOnBoard(int x, int y)
     {
-        if (x<0 || y<0 || x>=positions.GetLength(0) || y>=positions.GetLength(1)) return false; return true;
+        if (x < 0 || y < 0 || x >= positions.GetLength(0) || y >= positions.GetLength(1)) return false; return true;
     }
 
     public string GetCurrentPlayer()
@@ -93,7 +102,7 @@ public class Game : MonoBehaviour
 
     public void NextTurn()
     {
-        if(currentPlayer == "white")
+        if (currentPlayer == "white")
         {
             currentPlayer = "black";
         }
@@ -103,10 +112,10 @@ public class Game : MonoBehaviour
         }
 
     }
-    
+
     public void Update()
     {
-        if(gameOver == true && Input.GetMouseButtonDown(0))
+        if (gameOver == true && Input.GetMouseButtonDown(0))
         {
             gameOver = false;
 
@@ -114,12 +123,38 @@ public class Game : MonoBehaviour
         }
     }
 
+
     public void Winner(string playerWinner)
     {
         gameOver = true;
-        if(playerWinner == "white") GameObject.FindGameObjectWithTag("BeliPobeda").GetComponent<Image>().enabled = true;
-        if(playerWinner == "black") GameObject.FindGameObjectWithTag("CrniPobeda").GetComponent<Image>().enabled = true;
+        if (playerWinner == "white")
+        {
+            GameObject.FindGameObjectWithTag("BeliPobeda").GetComponent<Image>().enabled = true;
+            UpdateWinner win = new();
+            connection();
+            string userOneWon = PlayerPrefs.GetString("UserOne");
+            string userTwoWon = PlayerPrefs.GetString("UserTwo");
+            win.UpdateUserScore(userOneWon, userTwoWon);
+
+        }
+        if (playerWinner == "black")
+        {
+            GameObject.FindGameObjectWithTag("CrniPobeda").GetComponent<Image>().enabled = true;
+            UpdateWinner win = new();
+            connection();
+            string userOneWon = PlayerPrefs.GetString("UserOne");
+            string userTwoWon = PlayerPrefs.GetString("UserTwo");
+            win.UpdateUserScore(userTwoWon, userOneWon);
+        }
     }
 
-    
+    private void connection()
+    {
+        connectionString = "Server=localhost; database = mokrilugkaw; user = root; password = ''; charset = utf8";
+        MS_Connection = new MySqlConnection(connectionString);
+
+        MS_Connection.Open();
+    }
+
+
 }
