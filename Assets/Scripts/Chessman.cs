@@ -15,6 +15,8 @@ public class Chessman : MonoBehaviour
 
     //Variable for keeping track of the player it belongs to "black" or "white"
     private string player;
+    public int health; 
+    public int attack;
 
     //References to all the possible Sprites that this Chesspiece could be
     public Sprite crni_vojnik, crni_kralj, crni_strelac;
@@ -214,8 +216,33 @@ public class Chessman : MonoBehaviour
         GameObject mp = Instantiate(movePlate, new Vector3(x, y, -3), Quaternion.identity);
 
         MovePlate mpScript = mp.GetComponent<MovePlate>();
-        mpScript.attack = true;
+        mpScript.attacked = true;
         mpScript.SetReference(gameObject);
         mpScript.SetCoords(matrixX, matrixY);
     }
+
+     public void SetHealth(int value)
+    {
+        health = value;
+    }
+
+    // Get the health of the chess piece
+    public int GetHealth()
+    {
+        return health;
+    }
+
+    // Set the attack of the chess piece
+    public void SetAttack(int value)
+    {
+        attack = value;
+    }
+
+    // Get the attack of the chess piece
+    public int GetAttack()
+    {
+        return attack;
+    }
+
+
 }

@@ -62,6 +62,25 @@ public class Game : MonoBehaviour
         cm.SetXBoard(x);
         cm.SetYBoard(y);
         cm.Activate(); //It has everything set up so it can now Activate()
+
+        switch (name)
+    {
+        case "beli_vojnik":
+        case "crni_vojnik":
+            cm.SetAttack(2);
+            cm.SetHealth(3);
+            break;
+        case "beli_strelac":
+        case "crni_strelac":
+            cm.SetAttack(3);
+            cm.SetHealth(4);
+            break;
+        case "beli_kralj":
+        case "crni_kralj":
+            cm.SetAttack(2);
+            cm.SetHealth(8);
+            break;
+    }
         return obj;
     }
 

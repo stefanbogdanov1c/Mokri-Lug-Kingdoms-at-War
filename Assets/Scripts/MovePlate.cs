@@ -12,11 +12,11 @@ public class MovePlate : MonoBehaviour
     int matrixY;
 
     //bool for checking if the move attacks or just moves
-    public bool attack = false;
+    public bool attacked = false;
 
     public void Start()
     {
-        if(attack)
+        if(attacked)
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         }
@@ -27,13 +27,13 @@ public class MovePlate : MonoBehaviour
     {
         controller = GameObject.FindGameObjectWithTag("GameController");
 
-        if(attack )
-        {
-            GameObject cp = controller.GetComponent<Game>().GetPosition(matrixX, matrixY);
-            if(cp.name == "beli_kralj") controller.GetComponent<Game>().Winner("black");
-            if(cp.name == "crni_kralj") controller.GetComponent<Game>().Winner("white");
-            Destroy (cp);
-        }
+        if (attacked)
+    {
+        GameObject attacker = reference;
+        GameObject defender = controller.GetComponent<Game>().GetPosition(matrixX, matrixY);
+
+        Battle(attacker.GetComponent<Chessman>(), defender.GetComponent<Chessman>());
+    } else {
 
         controller.GetComponent<Game>().SetPositionEmpty(reference.GetComponent<Chessman>().GetXBoard(), reference.GetComponent<Chessman>().GetYBoard());
 
@@ -42,6 +42,7 @@ public class MovePlate : MonoBehaviour
         reference.GetComponent<Chessman>().SetCoords();
 
         controller.GetComponent<Game>().SetPosition(reference);
+        }
 
         controller.GetComponent<Game>().NextTurn();
 
@@ -64,4 +65,56 @@ public class MovePlate : MonoBehaviour
     {
         return reference;
     }
+
+        public void Battle(Chessman attacker, Chessman defender)
+{
+    int attackerHealth = attacker.GetHealth();
+    int attackerAttack = attacker.GetAttack();
+    int defenderHealth = defender.GetHealth();
+    int defenderAttack = defender.GetAttack();
+
+    // Both figures' health is not 0 or below
+    if (attackerHealth > 0 && defenderHealth > 0)
+    {
+        // Attacker damages defender's health
+        defenderHealth -= attackerAttack;
+
+        // Defender damages attacker's health
+        attackerHealth -= defenderAttack;
+
+        // Update health values
+        attacker.SetHealth(attackerHealth);
+        defender.SetHealth(defenderHealth);
+    }
+
+    // Defender's health goes 0 or below
+    if (defenderHealth <= 0 && attackerHealth > 0)
+    {
+        // Destroy the defender
+        Destroy(defender.gameObject);
+
+        // Move the attacker to the defender's position
+        attacker.SetXBoard(defender.GetXBoard());
+        attacker.SetYBoard(defender.GetYBoard());
+        attacker.SetCoords();
+    }
+
+    // Attacker's health goes 0 or below
+    if (attackerHealth <= 0 && defenderHealth > 0)
+    {
+        // Destroy the attacker
+        Destroy(attacker.gameObject);
+    }
+
+    // Both chesspieces' health goes to 0 or below
+    if (attackerHealth <= 0 && defenderHealth <= 0)
+    {
+        // Destroy both chesspieces
+        Destroy(attacker.gameObject);
+        Destroy(defender.gameObject);
+    }
+
+    // Start the next turn
+    // ...
+}
 }
