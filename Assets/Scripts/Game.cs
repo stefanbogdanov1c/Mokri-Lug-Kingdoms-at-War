@@ -1,9 +1,12 @@
+using MySql.Data.MySqlClient;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
+
     //Reference from Unity IDE
     public GameObject chesspiece;
 
@@ -20,6 +23,14 @@ public class Game : MonoBehaviour
 
     //Game Ending
     private bool gameOver = false;
+    private string getWon;
+    private string getLost;
+
+    //Data for database, connection...
+    private MySqlConnection MS_Connection;
+    private MySqlCommand MS_Command;
+    private string connectionString;
+
 
     //Unity calls this right when the game starts, there are a few built in functions
     //that Unity can call for you
@@ -113,11 +124,94 @@ public class Game : MonoBehaviour
         }
     }
 
+
     public void Winner(string playerWinner)
     {
         gameOver = true;
-        if (playerWinner == "white") GameObject.FindGameObjectWithTag("BeliPobeda").GetComponent<Image>().enabled = true;
-        if (playerWinner == "black") GameObject.FindGameObjectWithTag("CrniPobeda").GetComponent<Image>().enabled = true;
+        if (playerWinner == "white")
+        {
+            GameObject.FindGameObjectWithTag("BeliPobeda").GetComponent<Image>().enabled = true;
+            UpdateWinner win = new();
+            connection();
+            string userOneWon = PlayerPrefs.GetString("UserOne");
+            string userTwoWon = PlayerPrefs.GetString("UserTwo");
+
+
+            //Geting data from database
+
+            getWon = $"SELECT won FROM `users` WHERE userName = '{userOneWon}'";
+            MS_Command = new MySqlCommand(getWon, MS_Connection);
+            var row_number = MS_Command.ExecuteScalar();
+
+
+            getLost = $"SELECT lost FROM `users` WHERE userName = '{userTwoWon}'";
+            MS_Command = new MySqlCommand(getLost, MS_Connection);
+            var row_lost = MS_Command.ExecuteScalar();
+
+
+
+            int broj_pobeda = Convert.ToInt32(row_number);
+            int broj_poraza = Convert.ToInt32(row_lost);
+
+            int trenutni_broj_pobeda = Convert.ToInt32(row_number);
+            int trenutni_broj_poraza = Convert.ToInt32(row_lost);
+
+            MS_Connection.Close();
+
+            broj_pobeda += 1;
+            broj_poraza += 1;
+
+            win.UpdateUserScoreDb(userOneWon, broj_pobeda, trenutni_broj_poraza);
+            win.UpdateUserScoreDb(userTwoWon, trenutni_broj_pobeda, broj_poraza);
+        }
+        if (playerWinner == "black")
+        {
+            GameObject.FindGameObjectWithTag("CrniPobeda").GetComponent<Image>().enabled = true;
+            UpdateWinner win = new();
+            connection();
+
+            string userOneWon = PlayerPrefs.GetString("UserOne");
+            string userTwoWon = PlayerPrefs.GetString("UserTwo");
+
+
+            //Geting data from database
+
+            getWon = $"SELECT won FROM `users` WHERE userName = '{userTwoWon}'";
+            MS_Command = new MySqlCommand(getWon, MS_Connection);
+            var row_number = MS_Command.ExecuteScalar();
+
+            getLost = $"SELECT lost FROM `users` WHERE username = '{userOneWon}'";
+            MS_Command = new MySqlCommand(getLost, MS_Connection);
+
+            var row_lost = MS_Command.ExecuteScalar();
+
+            MS_Connection.Close();
+
+            Debug.Log("Ovo je pobeda " + row_number);
+            Debug.Log("Ovo je tip pbobede" + row_number.GetType());
+
+            int broj_pobeda = Convert.ToInt32(row_number);
+            int broj_poraza = Convert.ToInt32(row_lost);
+
+            int trenutni_broj_pobeda = Convert.ToInt32(row_number);
+            int trenutni_broj_poraza = Convert.ToInt32(row_lost);
+
+            MS_Connection.Close();
+
+            broj_pobeda += 1;
+            broj_poraza += 1;
+
+            win.UpdateUserScoreDb(userOneWon, trenutni_broj_pobeda, broj_poraza);
+            win.UpdateUserScoreDb(userTwoWon, broj_pobeda, trenutni_broj_poraza);
+        }
+    }
+
+    private void connection()
+    {
+        connectionString = "Server=localhost; database = mokrilugkaw; user = root; password = ''; charset = utf8";
+        MS_Connection = new MySqlConnection(connectionString);
+
+        MS_Connection.Open();
     }
 
 

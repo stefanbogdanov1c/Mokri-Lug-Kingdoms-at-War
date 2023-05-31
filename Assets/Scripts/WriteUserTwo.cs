@@ -3,9 +3,8 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class Write : MonoBehaviour
+public class WriteUserTwo : MonoBehaviour
 {
-
     public TMP_InputField username;
     private string connectionString;
     private MySqlConnection MS_Connection;
@@ -21,9 +20,9 @@ public class Write : MonoBehaviour
 
             if (username.text == "")
             {
-                username.text = "Guest1";
+                username.text = "Guest2";
             }
-            PlayerPrefs.SetString("UserOne", username.text.ToLower());
+            PlayerPrefs.SetString("UserTwo", username.text.ToLower());
 
             check_user = "SELECT COUNT(*) FROM users WHERE userName = '" + username.text.ToLower() + "';";
 
@@ -32,7 +31,6 @@ public class Write : MonoBehaviour
             MS_Command.ExecuteScalar();
 
             var row_number = MS_Command.ExecuteScalar();
-
 
             if (Convert.ToInt32(row_number) < 1)
             {
@@ -51,16 +49,12 @@ public class Write : MonoBehaviour
             {
                 return;
             }
-
-
-
         }
         catch (Exception ex)
         {
             Console.Write(ex.Message);
         }
     }
-
     private void connection()
     {
         connectionString = "Server=localhost; database = mokrilugkaw; user = root; password = ''; charset = utf8";

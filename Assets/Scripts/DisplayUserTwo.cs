@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class DisplayUserOne : MonoBehaviour
+public class DisplayUserTwo : MonoBehaviour
 {
     private TextMeshProUGUI usernameText;
 
@@ -10,8 +10,9 @@ public class DisplayUserOne : MonoBehaviour
     {
         usernameText = GetComponent<TextMeshProUGUI>();
 
-        string username = PlayerPrefs.GetString("UserOne");
+        string username = PlayerPrefs.GetString("UserTwo");
 
         usernameText.text = username;
     }
+
 }
