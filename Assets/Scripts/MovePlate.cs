@@ -120,26 +120,23 @@ public class MovePlate : MonoBehaviour
 
         // Start the next turn
         // ...
-        if(attacker.name == "beli_kralj" && attackerHealth <= 0) {
+        if (((attacker.name == "beli_kralj" && attackerHealth <= 0) && (defender.name == "crni_kralj" && defenderHealth <= 0)) || (attacker.name == "crni_kralj" && attackerHealth <= 0) && (defender.name == "beli_kralj" && defenderHealth <= 0)){
+            controller.GetComponent<Game>().Winner("none");
+        }
+        else if(attacker.name == "beli_kralj" && attackerHealth <= 0) 
+        {
            controller.GetComponent<Game>().Winner("black");
-
-
-        } else if (attacker.name == "crni_kralj" && attackerHealth <= 0) {
+        }
+        else if (attacker.name == "crni_kralj" && attackerHealth <= 0) 
+        {
             controller.GetComponent<Game>().Winner("white");
-
-        } else if(defender.name == "beli_kralj" && defenderHealth <= 0) {
+        }
+        else if(defender.name == "beli_kralj" && defenderHealth <= 0)
+        {
             controller.GetComponent<Game>().Winner("black");
-
-        } else if(defender.name == "crni_kralj" && defenderHealth <= 0) {
+        } else if(defender.name == "crni_kralj" && defenderHealth <= 0) 
+        {
             controller.GetComponent<Game>().Winner("white");
-        } else if((attacker.name == "crni_kralj" && attackerHealth <= 0) && (defender.name == "beli_kralj" && defenderHealth <= 0)) {
-
-            controller.GetComponent<Game>().Winner("none");
-
-        } else if((attacker.name == "beli_kralj" && attackerHealth <= 0) && (defender.name == "crni_kralj" && defenderHealth <= 0)) {
-
-            controller.GetComponent<Game>().Winner("none");
-
         }
     }
 }
