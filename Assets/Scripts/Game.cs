@@ -149,12 +149,16 @@ public class Game : MonoBehaviour
     public void Winner(string playerWinner)
     {
         gameOver = true;
+        GameObject.FindGameObjectWithTag("BoardLower").GetComponent<Image>().enabled = false;
+        GameObject.FindGameObjectWithTag("BoardUpper").GetComponent<Image>().enabled = false;
+        GameObject.FindGameObjectWithTag("Thomas").GetComponent<TMPro.TextMeshProUGUI>().enabled = false;
+        GameObject.FindGameObjectWithTag("Spitter").GetComponent<TMPro.TextMeshProUGUI>().enabled = false;
+        GameObject.FindGameObjectWithTag("Attacker").GetComponent<TMPro.TextMeshProUGUI>().enabled = false;
+        GameObject.FindGameObjectWithTag("Defender").GetComponent<TMPro.TextMeshProUGUI>().enabled = false;
+
         if (playerWinner == "white")
         {
-            GameObject.FindGameObjectWithTag("BoardLower").GetComponent<Image>().enabled = false;
-            GameObject.FindGameObjectWithTag("BoardUpper").GetComponent<Image>().enabled = false;
-            GameObject.FindGameObjectWithTag("Thomas").GetComponent<TMPro.TextMeshProUGUI>().enabled = false;
-            GameObject.FindGameObjectWithTag("Spitter").GetComponent<TMPro.TextMeshProUGUI>().enabled = false;
+
             GameObject.FindGameObjectWithTag("BeliPobeda").GetComponent<Image>().enabled = true;
             UpdateWinner win = new();
             connection();
@@ -165,10 +169,6 @@ public class Game : MonoBehaviour
         }
         else if (playerWinner == "black")
         {
-            GameObject.FindGameObjectWithTag("BoardLower").GetComponent<Image>().enabled = false;
-            GameObject.FindGameObjectWithTag("BoardUpper").GetComponent<Image>().enabled = false;
-            GameObject.FindGameObjectWithTag("Thomas").GetComponent<TMPro.TextMeshProUGUI>().enabled = false;
-            GameObject.FindGameObjectWithTag("Spitter").GetComponent<TMPro.TextMeshProUGUI>().enabled = false;
             GameObject.FindGameObjectWithTag("CrniPobeda").GetComponent<Image>().enabled = true;
             UpdateWinner win = new();
             connection();
