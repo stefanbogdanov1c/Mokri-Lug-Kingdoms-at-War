@@ -752,24 +752,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'One day, while Spitter was eating, he and Thomas had an argument about
-    the Mokrolugian river.
+  m_text: 'In the aftermath of this tragedy, the kingdom was fractured, divided asunder
+    by sorrow and resentment. The sons of the fallen monarch, seeking their shares
+    of power, cleaved the realm in twain. Veliki and Mali Mokri Lug, two equal dominions
+    born from the remnants of a shattered legacy.
 
+    
 
-    Spitter did what he did best, and spat at his brother.
-    Thomas was so drunk that he became blinded by rage, and attacked his brother.
-
-
-    King
-    died shortly after that, and his sons split the kingdom into two equal kingdoms:
-    Veliki & Mali Mokri Lug.
-
-
-    Become the commander of one of their forces, and
-    lead to the ressurection of the old Mokri Lug Kingdom!'
+    But lo! I beseech
+    thee, be it known that an opportunity awaits amidst this fractured realm. Take
+    upon thyself the mantle of a commander, a beacon of hope, and lead thy forces
+    towards a renaissance of the old Mokri Lug Kingdom! Let not the flames of strife
+    and division engulf our land, but instead, with valiant might and noble purpose,
+    resurrect the glorious realm of yore!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e785616c19fee60459436bf823533ff9, type: 2}
+  m_sharedMaterial: {fileID: 8014208535073578886, guid: e785616c19fee60459436bf823533ff9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -793,7 +791,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.95
+  m_fontSize: 30.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1192,24 +1190,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Once upon a time, in a land far, far away, there was a Kingdom named Mokri
-    Lug. The King had two sons: Spitter, and Drunken Thomas.
+  m_text: '''Twas a day of discontent, where Spitter, amidst his feast, did engage
+    in dispute with Thomas o''er the Mokrolugian river. Fierce words were exchanged,
+    akin to two raging storms clashing in the tempestuous sky.
 
+    
 
-    Spitter was a
-    skillful horse trader, a skill which made the kingom the richest in the lands.
-
-
-    Meanwhile,
-    Thomas was an artistic soul, he wanted to decorate every interior of every house
-    in the kingdom.
-
-
-    The brothers loved each other, even though they have always
-    had their differences.'
+    Spitter,
+    true to his name, unleashed his venomous prowess and spat at his own kin, an
+    act that bespoke of his spiteful nature. Thomas, in his drunken haze, consumed
+    by wrath, became blind to reason and launched an assault upon his very brother.
+    Alas, fate''s cruel hand claimed the life of King in its wake.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e785616c19fee60459436bf823533ff9, type: 2}
+  m_sharedMaterial: {fileID: 8014208535073578886, guid: e785616c19fee60459436bf823533ff9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1233,7 +1227,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33.6
+  m_fontSize: 34.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
