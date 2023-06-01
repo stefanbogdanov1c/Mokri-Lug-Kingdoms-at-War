@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MovePlate : MonoBehaviour
@@ -14,11 +13,16 @@ public class MovePlate : MonoBehaviour
     //bool for checking if the move attacks or just moves
     public bool attacked = false;
 
+
+    public TMP_Text healthText;
+    public TMP_Text attackText;
+
     public void Start()
     {
         if (attacked)
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+
         }
     }
 
@@ -30,7 +34,7 @@ public class MovePlate : MonoBehaviour
         {
             GameObject attacker = reference;
             GameObject defender = controller.GetComponent<Game>().GetPosition(matrixX, matrixY);
-
+            UpdateText(attacker.GetComponent<Chessman>(), defender.GetComponent<Chessman>());
             Battle(attacker.GetComponent<Chessman>(), defender.GetComponent<Chessman>());
         }
         else
@@ -70,12 +74,23 @@ public class MovePlate : MonoBehaviour
         return reference;
     }
 
+    void UpdateText(Chessman attacker, Chessman defender)
+    {
+        string userOneWon = PlayerPrefs.GetString("UserOne");
+        string userTwoWon = PlayerPrefs.GetString("UserTwo");
+        GameObject.FindGameObjectWithTag("Attacker").GetComponent<TMP_Text>().text = userOneWon + "\n" + "Current health: " + (attacker.GetHealth() - defender.GetAttack()) + "\n" + "Damage taken: " + attacker.GetAttack() + "\n";
+        GameObject.FindGameObjectWithTag("Defender").GetComponent<TMP_Text>().text = userTwoWon + "\n" + "Current health: " + (defender.GetHealth() - attacker.GetAttack()) + "\n" + "Damage taken: " + defender.GetAttack();
+    }
+
     public void Battle(Chessman attacker, Chessman defender)
     {
         int attackerHealth = attacker.GetHealth();
         int attackerAttack = attacker.GetAttack();
         int defenderHealth = defender.GetHealth();
         int defenderAttack = defender.GetAttack();
+
+        Debug.Log(attackerHealth);
+        Debug.Log(defenderHealth);
 
         // Both figures' health is not 0 or below
         if (attackerHealth > 0 && defenderHealth > 0)
@@ -120,21 +135,23 @@ public class MovePlate : MonoBehaviour
 
         // Start the next turn
         // ...
-        if (((attacker.name == "beli_kralj" && attackerHealth <= 0) && (defender.name == "crni_kralj" && defenderHealth <= 0)) || (attacker.name == "crni_kralj" && attackerHealth <= 0) && (defender.name == "beli_kralj" && defenderHealth <= 0)){
+        if (((attacker.name == "beli_kralj" && attackerHealth <= 0) && (defender.name == "crni_kralj" && defenderHealth <= 0)) || (attacker.name == "crni_kralj" && attackerHealth <= 0) && (defender.name == "beli_kralj" && defenderHealth <= 0))
+        {
             controller.GetComponent<Game>().Winner("none");
         }
-        else if(attacker.name == "beli_kralj" && attackerHealth <= 0) 
+        else if (attacker.name == "beli_kralj" && attackerHealth <= 0)
         {
-           controller.GetComponent<Game>().Winner("black");
+            controller.GetComponent<Game>().Winner("black");
         }
-        else if (attacker.name == "crni_kralj" && attackerHealth <= 0) 
+        else if (attacker.name == "crni_kralj" && attackerHealth <= 0)
         {
             controller.GetComponent<Game>().Winner("white");
         }
-        else if(defender.name == "beli_kralj" && defenderHealth <= 0)
+        else if (defender.name == "beli_kralj" && defenderHealth <= 0)
         {
             controller.GetComponent<Game>().Winner("black");
-        } else if(defender.name == "crni_kralj" && defenderHealth <= 0) 
+        }
+        else if (defender.name == "crni_kralj" && defenderHealth <= 0)
         {
             controller.GetComponent<Game>().Winner("white");
         }

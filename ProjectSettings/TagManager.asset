@@ -11,6 +11,8 @@ TagManager:
   - BoardUpper
   - Thomas
   - Spitter
+  - Attacker
+  - Defender
   layers:
   - Default
   - TransparentFX
