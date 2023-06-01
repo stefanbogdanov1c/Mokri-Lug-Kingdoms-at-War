@@ -64,23 +64,23 @@ public class Game : MonoBehaviour
         cm.Activate(); //It has everything set up so it can now Activate()
 
         switch (name)
-    {
-        case "beli_vojnik":
-        case "crni_vojnik":
-            cm.SetAttack(2);
-            cm.SetHealth(3);
-            break;
-        case "beli_strelac":
-        case "crni_strelac":
-            cm.SetAttack(3);
-            cm.SetHealth(4);
-            break;
-        case "beli_kralj":
-        case "crni_kralj":
-            cm.SetAttack(2);
-            cm.SetHealth(8);
-            break;
-    }
+        {
+            case "beli_vojnik":
+            case "crni_vojnik":
+                cm.SetAttack(2);
+                cm.SetHealth(3);
+                break;
+            case "beli_strelac":
+            case "crni_strelac":
+                cm.SetAttack(3);
+                cm.SetHealth(4);
+                break;
+            case "beli_kralj":
+            case "crni_kralj":
+                cm.SetAttack(2);
+                cm.SetHealth(8);
+                break;
+        }
         return obj;
     }
 
@@ -138,7 +138,7 @@ public class Game : MonoBehaviour
         {
             gameOver = false;
 
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene("Board");
         }
     }
 
@@ -172,7 +172,9 @@ public class Game : MonoBehaviour
             string userOneWon = PlayerPrefs.GetString("UserOne");
             string userTwoWon = PlayerPrefs.GetString("UserTwo");
             win.UpdateUserScore(userTwoWon, userOneWon);
-        } else {
+        }
+        else
+        {
             SceneManager.LoadScene("Board");
         }
     }
