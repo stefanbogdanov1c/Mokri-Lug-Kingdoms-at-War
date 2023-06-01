@@ -607,7 +607,6 @@ RectTransform:
   - {fileID: 870943639}
   - {fileID: 1950902825}
   - {fileID: 873896879}
-  - {fileID: 1246893645}
   - {fileID: 1773510427}
   - {fileID: 998662071}
   m_Father: {fileID: 0}
@@ -918,8 +917,8 @@ GameObject:
   - component: {fileID: 998662073}
   - component: {fileID: 998662072}
   m_Layer: 5
-  m_Name: Health
-  m_TagString: Untagged
+  m_Name: Defender
+  m_TagString: Defender
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -937,12 +936,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 854662107}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -686, y: 373}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -627.4398, y: 349.23645}
+  m_SizeDelta: {x: 317.12, y: 97.5271}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &998662072
 MonoBehaviour:
@@ -966,15 +965,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e785616c19fee60459436bf823533ff9, type: 2}
+  m_sharedMaterial: {fileID: 8014208535073578886, guid: e785616c19fee60459436bf823533ff9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1310,68 +1309,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021085020}
   m_CullTransparentMesh: 1
---- !u!1001 &1246893644
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 854662107}
-    m_Modifications:
-    - target: {fileID: 307456128860746571, guid: f232a214693ff9d47900ef95effaaab4, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 307456128860746571, guid: f232a214693ff9d47900ef95effaaab4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -960
-      objectReference: {fileID: 0}
-    - target: {fileID: 307456128860746571, guid: f232a214693ff9d47900ef95effaaab4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -555
-      objectReference: {fileID: 0}
-    - target: {fileID: 307456128860746571, guid: f232a214693ff9d47900ef95effaaab4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 307456128860746571, guid: f232a214693ff9d47900ef95effaaab4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 307456128860746571, guid: f232a214693ff9d47900ef95effaaab4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 307456128860746571, guid: f232a214693ff9d47900ef95effaaab4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 307456128860746571, guid: f232a214693ff9d47900ef95effaaab4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 307456128860746571, guid: f232a214693ff9d47900ef95effaaab4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 307456128860746571, guid: f232a214693ff9d47900ef95effaaab4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 307456128860746571, guid: f232a214693ff9d47900ef95effaaab4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 307456128860746573, guid: f232a214693ff9d47900ef95effaaab4, type: 3}
-      propertyPath: m_Name
-      value: chesspiece
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f232a214693ff9d47900ef95effaaab4, type: 3}
---- !u!4 &1246893645 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 307456128860746571, guid: f232a214693ff9d47900ef95effaaab4, type: 3}
-  m_PrefabInstance: {fileID: 1246893644}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1619627271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,7 +1406,7 @@ GameObject:
   - component: {fileID: 1773510428}
   m_Layer: 5
   m_Name: Attack
-  m_TagString: Untagged
+  m_TagString: Attacker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1487,12 +1424,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 854662107}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -686, y: 274}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -627.4398, y: 124}
+  m_SizeDelta: {x: 317.1204, y: 89.0401}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1773510428
 MonoBehaviour:
@@ -1516,15 +1453,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e785616c19fee60459436bf823533ff9, type: 2}
+  m_sharedMaterial: {fileID: 8014208535073578886, guid: e785616c19fee60459436bf823533ff9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

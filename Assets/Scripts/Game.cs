@@ -1,4 +1,5 @@
 using MySql.Data.MySqlClient;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -52,6 +53,8 @@ public class Game : MonoBehaviour
         }
 
 
+        GameObject.FindGameObjectWithTag("Attacker").GetComponent<TMP_Text>().text = "0";
+        GameObject.FindGameObjectWithTag("Defender").GetComponent<TMP_Text>().text = "0";
     }
 
     public GameObject Create(string name, int x, int y)
